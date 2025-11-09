@@ -88,9 +88,19 @@ export default function ShowDetail() {
                             </span>
                         ))}
                     </div>
+
+                    {/** Description */}
+                    <p className="text-gray-700 leading-relaxed">{podcast.description}</p>
                 </div>
             </div>
 
+            {/**Seasons section */}
+            <div className="mt-12">
+                <h2 className="text-2xl font-bold mb-6"> Seasons</h2>
+                {podcast.seasons.map((season) => (
+                    <SeasonAccordian key={season.season} season={season} />
+                ))}
+            </div>
         </div>
-    )
+    );
 }
