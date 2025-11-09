@@ -56,7 +56,41 @@ export default function ShowDetail() {
             </Link>
 
             {/** Main layout: image + details */}
-            
+            <div className="grid md:grid-cols-3 gap-8">
+                {/**Podcast Image */}
+                <div>
+                    <img
+                      src={podcast.image}
+                      alt={podcast.title}
+                      className="w-full rounded-lg shadow-lg"
+                    />
+                </div>
+
+                {/** Details */}
+                <div className="md:col-span-2">
+                    <h1 className="text-4xl font-bold mb-4">{podcast.title}</h1>
+
+                    {/** Meta info */}
+                    <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
+                        <span>Updated: {formatDate(podcast.updated)}</span>
+                        <span>•</span>
+                        <span>{podcast.seasons} seasons </span>
+                    </div>
+
+                    {/**Genre badges */}
+                    <div className="flex flex-wrap gap-2 mb-6">
+                        {podcast.genres.map((genreId) => (
+                            <span
+                              key={genreId}
+                              className="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm"
+                            >
+                                {GENRE_MAP[genreId]}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
         </div>
     )
 }
