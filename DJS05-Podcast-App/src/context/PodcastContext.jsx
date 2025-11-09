@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect} from "react";
 import { fetchAllPreviews } from "../api/fetchData";
 
 const PodcastContext = createContext();
@@ -16,13 +16,13 @@ export function PodcastProvider({ children }) {
 
   //Filter controls
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedGenre, setSelectedGenre] = useState("")
+  const [selectedGenre, setSelectedGenre] = useState("");
 
   //Global loading indicator
   const [loading, setLoading] = useState(true);
 
   //Fetch all podcast previews on initial mount only
-  React.useEffect(() => {
+  useEffect(() => {
     const loadPreviews = async () => {
       try {
         const data = await fetchAllPreviews();

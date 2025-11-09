@@ -25,6 +25,8 @@ export default function Home () {
         loading, // Show spinner while loading
     } = usePodcast();
 
+    console.log("previews from context:", previews);
+
     /**
      * FILTER LOGIC
      * Runs every time searchTerm or selectedGenre changes

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { fetchShowById } from "../api/fetchData";
 import Loading from "../components/UI/Loading";
 import Error from "../components/UI/Error";
-import SeasonAccordion from "../components/SeasonsAccordion";
+import SeasonAccordion from "../components/SeasonAccordion";
 import { GENRE_MAP } from "../data/genreMap";
 import { formatDate } from "../utils/formatDate";
 
@@ -42,7 +42,7 @@ export default function ShowDetail() {
     //Conditional Rendering:
     if (loading) return <Loading message="Loading podcast details..."/>;
     if (error) return <Error message={error} />
-    if (!podcast) return <Error message="Show not found" />
+    if (!podcast) return <Error message="Show not found" />;
 
     // Render Full Show Details:
     return (
@@ -74,7 +74,7 @@ export default function ShowDetail() {
                     <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
                         <span>Updated: {formatDate(podcast.updated)}</span>
                         <span>•</span>
-                        <span>{podcast.seasons} seasons </span>
+                        <span>{podcast.seasons.length} seasons </span>
                     </div>
 
                     {/**Genre badges */}

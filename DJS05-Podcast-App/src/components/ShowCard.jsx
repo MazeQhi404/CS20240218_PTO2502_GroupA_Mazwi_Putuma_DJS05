@@ -25,7 +25,7 @@ export default function ShowCard({show}) {
 
                 {/** Seasons count -handles singular or plural */}
                 <p className="text-sm text-gray-600 mt-1">
-                    {show.seasons} {show.season === 1 ? "season" : "seasons"}
+                    {show.seasons} {show.seasons === 1 ? "season" : "seasons"}
                 </p>
 
                 {/**Genre Tags */}
