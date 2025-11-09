@@ -81,10 +81,12 @@ export default function Home () {
                 ))}
             </div>
 
-            
+            {/** =========================== EMPTY STATE ============================== */}
+            {filteredShows.length === 0 && (
+                <p className="text-center text-gray-500 py-12 text-lg">
+                    No podcasts found matching your criteria
+                </p>
+            )}
         </div>
-    )
-
-
-    
+    );
 }
