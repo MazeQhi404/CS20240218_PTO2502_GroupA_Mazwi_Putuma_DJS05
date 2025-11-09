@@ -68,6 +68,20 @@ export default function Home () {
             </div>
 
             {/** ======================== PODCAST GRID ============================ */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {filteredShows.map((show) => (
+                    <Link
+                      key={show.id}
+                      to={`/show/${show.id}`}
+                      // Optional: pass state for future use (e.g., scroll position)
+                      state={{fromHome: true}}
+                    >
+                        <ShowCard show={show} />
+                    </Link>
+                ))}
+            </div>
+
+            
         </div>
     )
 
