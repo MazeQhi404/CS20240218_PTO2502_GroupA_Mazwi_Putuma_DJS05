@@ -36,6 +36,41 @@ export default function Home () {
         return matchesSearch && matchesGenre;
     });
 
-    
+    //Show loading spinner while previews are being fetched (only on first load)
+    if (loading) return <Loading message="Loading podcasts..."/>
+
+    return (
+        <div className="max-w-7xl ms-auto px-4 py-8">
+            {/** ======================== SEARCH & FILTER UI ===================== */}
+            <div className="mb-8 space-y-4">
+                {/** Search Imput */}
+                <input
+                  type="text"
+                  placeholder="Search podcasts..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                />
+
+                {/**Genre Filter Dropdown */}
+                <select
+                  value={selectedGenre}
+                  onChange={(e) => setSelectedGenre(e.target.value)}
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300"
+                >
+                    <option value="">All Genres</option>
+                    {Object.entries(GENRE_MAP).map(([id, title]) => (
+                        <option key={id} value={id}>
+                            {title}
+                        </option>
+                    ))}
+                </select>
+            </div>
+
+            {/** ======================== PODCAST GRID ============================ */}
+        </div>
+    )
+
+
     
 }
