@@ -30,5 +30,12 @@ export default function Home () {
      * Runs every time searchTerm or selectedGenre changes
      * Keeps filtering fast because previews are already in memory
      */
+    const filteredShows = previews.filter((show) => {
+        const matchesSearch = show.title.toLowerCase().includes(searchTerm.toLowerCase());
+        const matchesGenre = !selectedGenre || show.genres.includes(Number(selectedGenre));
+        return matchesSearch && matchesGenre;
+    });
+
+    
     
 }
