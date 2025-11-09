@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { fetchShowById } from "../api/fetchData";
 import Loading from "../components/UI/Loading";
 import Error from "../components/UI/Error";
-import SeasonAccordian from "../components/SeasonsAccordian";
+import SeasonAccordion from "../components/SeasonsAccordion";
 import { GENRE_MAP } from "../data/genreMap";
 import { formatDate } from "../utils/formatDate";
 
@@ -98,7 +98,7 @@ export default function ShowDetail() {
             <div className="mt-12">
                 <h2 className="text-2xl font-bold mb-6"> Seasons</h2>
                 {podcast.seasons.map((season) => (
-                    <SeasonAccordian key={season.season} season={season} />
+                    <SeasonAccordion key={season.season} season={season} />
                 ))}
             </div>
         </div>
