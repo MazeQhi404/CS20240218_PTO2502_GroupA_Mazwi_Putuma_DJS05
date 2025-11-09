@@ -39,6 +39,10 @@ export default function ShowDetail() {
         loadShow();
     }, [id]); //Re-run if user navigates to different show
 
-    
+    //Conditional Rendering:
+    if (loading) return <Loading message="Loading podcast details..."/>;
+    if (error) return <Error message={error} />
+    if (!podcast) return <Error message="Show not found" />
 
+    // Render Full Show Details:
 }
