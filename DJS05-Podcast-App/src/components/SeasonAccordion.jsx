@@ -1,5 +1,5 @@
 import {useState} from "react";
-import EpisodeCard from "./EpisodeCard";
+import EpisodeCard from "./EpisodeCard.jsx";
 
 /** 
  * SEASON ACCORDION COMPONENT
