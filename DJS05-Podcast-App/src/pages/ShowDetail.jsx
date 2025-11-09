@@ -18,6 +18,27 @@ export default function ShowDetail() {
     //Local state for this specific show
     const [podcast, setPodcast] = useState(null); //Full show data
     const [loading, setLoading] = useState(true); // Show spinner
-    const [error, setError] = useState(null); //Show error message
+    const [error, setError] = useState(null); // Show error message
+
+    /**
+     * Fetch Single Show When Component Mounts
+     * Runs once ([]) or when id changes
+     */
+    useEffect(() => {
+        const loadShow = async () => {
+            try {
+                const data = await fetchShowById(id); //API call
+                setPodcast(data);                     // Save data
+            } catch (err) {
+                setError(err.message);                // Network or 404 error
+            } finally {
+                setLoading(false);                     // Always hide spinner
+            }
+        };
+
+        loadShow();
+    }, [id]); //Re-run if user navigates to different show
+
+    
 
 }
