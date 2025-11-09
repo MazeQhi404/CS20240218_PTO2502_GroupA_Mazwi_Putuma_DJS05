@@ -45,4 +45,18 @@ export default function ShowDetail() {
     if (!podcast) return <Error message="Show not found" />
 
     // Render Full Show Details:
+    return (
+        <div className="max-w-5xl mx-auto px-4 py-8">
+            {/**Back button - takes user to Home with filters preserved */}
+            <Link
+              to="/"
+              className="inline-block mb-6 text-indigo-600 hover:text-indigo-800 font-medium"
+            >
+                ← Back to Home
+            </Link>
+
+            {/** Main layout: image + details */}
+            
+        </div>
+    )
 }
