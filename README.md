@@ -13,7 +13,7 @@ A responsive podcast browser with dynamic routing and state preservation.
 
 ## Setup
 
-npm create vite@latest my-podcast-app -- --template react
-cd my-podcast-app
+npm create vite@latest DJS05-Podcast-App -- --template react
+cd DJS05-Podcast-App
 npm install react-router-dom
 npm run dev
